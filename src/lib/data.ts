@@ -42,6 +42,21 @@ interface ImagenGaleria {
 
 export const iglesias: Iglesia[] = [
     {
+        nombre: 'Iglesia Adventista Residenciales San José',
+        anciano: '',
+        direccion: 'Carretera a Residenciales San José, San José Pinula',
+        pastor: 'Emilio Alvarez',
+        cultos: [
+            { dia: 'Miércoles', hora: '18:00', tipo: 'Culto' },
+            { dia: 'Viernes', hora: '18:00', tipo: 'Recepción de sábado' },
+            { dia: 'Sábado', hora: '09:00', tipo: 'Culto principal' },
+        ],
+        ubicacion: 'https://maps.app.goo.gl/TqJ8qXtxhUfM6yea6',
+        redesSociales: {
+            facebook: 'https://www.facebook.com/pinula4iglesiaa/',
+        },
+    },
+    {
         nombre: 'Iglesia Adventista Pinula #1',
         anciano: '',
         direccion: 'Residenciales San José, San José Pinula',
