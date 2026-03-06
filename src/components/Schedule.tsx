@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Clock, MapPin } from 'lucide-react'
+import { Clock, MapPin, ExternalLink, Facebook, Instagram } from 'lucide-react'
 import { iglesias } from '@/lib/data'
 
 export default function Schedule() {
@@ -42,23 +42,56 @@ export default function Schedule() {
               {/* Header de la card */}
               <div className="bg-navy px-6 py-5">
                 <h3 className="text-white font-bold text-lg">{iglesia.nombre}</h3>
-                <div className="flex items-center gap-2 text-white/60 text-sm mt-1">
-                  <MapPin size={14} />
+                <div className="flex items-start gap-2 text-white/60 text-sm mt-1">
+                  <MapPin size={14} className="mt-0.5 flex-shrink-0" />
                   <span>{iglesia.direccion}</span>
                 </div>
               </div>
 
-              {/* Info del pastor y anciano */}
-              <div className="px-6 py-4 bg-gray-50 border-b border-gray-100 grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-gray-400 text-xs uppercase tracking-wide">Pastor</p>
-                  <p className="text-navy font-medium text-sm">{iglesia.pastor}</p>
-                </div>
-                <div>
-                  <p className="text-gray-400 text-xs uppercase tracking-wide">Anciano</p>
-                  <p className="text-navy font-medium text-sm">{iglesia.anciano}</p>
-                </div>
+              {/* Info del pastor */}
+              <div className="px-6 py-4 bg-gray-50 border-b border-gray-100">
+                <p className="text-gray-400 text-xs uppercase tracking-wide">Pastor</p>
+                <p className="text-navy font-medium text-sm">{iglesia.pastor}</p>
               </div>
+
+              {/* Links de ubicación y RRSS */}
+              {(iglesia.ubicacion || iglesia.redesSociales?.facebook || iglesia.redesSociales?.instagram) && (
+                <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex flex-wrap items-center gap-3">
+                  {iglesia.ubicacion && (
+                    <a
+                      href={iglesia.ubicacion}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-blue text-xs font-medium hover:underline"
+                    >
+                      <ExternalLink size={13} />
+                      Ver en Maps
+                    </a>
+                  )}
+                  {iglesia.redesSociales?.facebook && (
+                    <a
+                      href={iglesia.redesSociales.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-blue text-xs font-medium hover:underline"
+                    >
+                      <Facebook size={13} />
+                      Facebook
+                    </a>
+                  )}
+                  {iglesia.redesSociales?.instagram && (
+                    <a
+                      href={iglesia.redesSociales.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-blue text-xs font-medium hover:underline"
+                    >
+                      <Instagram size={13} />
+                      Instagram
+                    </a>
+                  )}
+                </div>
+              )}
 
               {/* Cultos */}
               <div className="px-6 py-4 flex flex-col gap-3">
