@@ -53,7 +53,7 @@ function CountdownBox({ value, label }: { value: number; label: string }) {
 
 const clubes = [
   { nombre: 'Club Luken', iglesia: 'Fraijanes', href: '/clubs/luken' },
-  { nombre: 'Club Juda', iglesia: 'San José Pinula', href: null },
+  { nombre: 'Club Judá', iglesia: 'Santa Catarina Pinula', href: '/clubs/juda' },
   { nombre: 'Club Conquistadores', iglesia: 'Pinula #3', href: null },
   { nombre: 'Club Conquistadores', iglesia: 'Pinula #4', href: null },
 ]

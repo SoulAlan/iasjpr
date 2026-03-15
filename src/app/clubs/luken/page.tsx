@@ -12,7 +12,7 @@ function FacebookIcon({ size = 20 }: { size?: number }) {
     </svg>
   )
 }
-import LukenCarousel from '@/components/LukenCarousel'
+import ClubCarousel from '@/components/ClubCarousel'
 
 export const metadata: Metadata = {
   title: 'Club Luken · Fraijanes',
@@ -211,7 +211,7 @@ export default function LukenPage() {
             <p className="text-center text-xs font-black uppercase tracking-[0.25em] mb-10" style={{ color: '#F59E0B' }}>
               Galería
             </p>
-            <LukenCarousel images={images} />
+            <ClubCarousel images={images} accentColor="#F59E0B" />
           </section>
         </>
       )}
