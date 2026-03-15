@@ -5,12 +5,12 @@ import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 
 const links = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Juventud', href: '#juventud' },
-  { label: 'Horarios', href: '#horarios' },
-  { label: 'Actividades', href: '#actividades' },
-  { label: 'Galería', href: '#galeria' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Inicio', href: '/#inicio' },
+  { label: 'Juventud', href: '/#juventud' },
+  { label: 'Horarios', href: '/#horarios' },
+  { label: 'Actividades', href: '/#actividades' },
+  { label: 'Galería', href: '/#galeria' },
+  { label: 'Contacto', href: '/#contacto' },
 ]
 
 export default function Navbar() {
@@ -31,7 +31,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         {/* Logo / Nombre */}
-        <a href="#inicio" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <Image
             src="https://identidade.adventistas.org/es/assets/img/iasd-es.svg"
             alt="Iglesia Adventista del Séptimo Día"

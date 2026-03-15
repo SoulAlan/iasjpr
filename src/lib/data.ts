@@ -12,6 +12,7 @@ interface Pastor {
 interface RedesSocialesIglesia {
     facebook?: string
     instagram?: string
+    twitter?: string
 }
 
 interface Iglesia {
@@ -19,6 +20,7 @@ interface Iglesia {
     anciano: string
     direccion: string
     pastor: string
+    correo?: string
     cultos: Culto[]
     ubicacion?: string
     redesSociales?: RedesSocialesIglesia
@@ -96,18 +98,40 @@ export const iglesias: Iglesia[] = [
         redesSociales: {},
     },
     {
-        nombre: 'Iglesia Adventista Pinula #4',
+        nombre: 'Iglesia Adventista Del Séptimo Día, Fraijanes',
         anciano: '',
-        direccion: '6 avenida, lotificación el chorrito lote 76 y 77 Zona 1, San José Pinula',
-        pastor: 'Emilio Alvarez',
+        direccion: '5ta Calle 1-23 Zona 2 El Tempisque, Fraijanes (a un costado de Multiservicios Don Paco)',
+        pastor: 'Pr. Caleb Josías Soto Poca',
+        correo: 'clublukenfraijanes@gmail.com',
         cultos: [
-            { dia: 'Miércoles', hora: '18:00', tipo: 'Culto' },
-            { dia: 'Viernes', hora: '18:00', tipo: 'Recepción de sábado' },
-            { dia: 'Sábado', hora: '09:00', tipo: 'Culto principal' },
+            { dia: 'Sábado', hora: '8:45 AM - 12:00 PM', tipo: 'Culto principal' },
+            { dia: 'Sábado tarde', hora: '5:00 PM - 6:30 PM', tipo: 'Culto vespertino' },
+            { dia: 'Lunes', hora: '7:00 PM - 8:00 PM', tipo: 'Culto' },
+            { dia: 'Martes', hora: '7:00 PM - 8:00 PM', tipo: 'Grupo pequeño' },
+            { dia: 'Miércoles', hora: '7:00 PM - 8:00 PM', tipo: 'Culto' },
+            { dia: 'Viernes', hora: '7:00 PM - 8:00 PM', tipo: 'Culto' },
         ],
-        ubicacion: 'https://www.google.com/maps?s=web&sca_esv=9ce3d57fdcda1de3&lqi=CiJpZ2xlc2lhIEFkdmVudGlzdGEgU2FuIGpvc2UgcGludWxhSOm57u2Xq4CACFo2EAAQARgAGAEYAhgDGAQiImlnbGVzaWEgYWR2ZW50aXN0YSBzYW4gam9zZSBwaW51bGEyAmVzkgEcc2V2ZW50aF9kYXlfYWR2ZW50aXN0X2NodXJjaOABAA&vet=12ahUKEwiIhpzf2YuTAxWf1RoGHYXNECYQ1YkKegQILRAB..i&cs=0&um=1&ie=UTF-8&fb=1&gl=us&sa=X&geocode=KeW4z3xzu4mFMYY4-GSaw7No&daddr=6+avenida,+lotificaci%C3%B3n+el+chorrito+lote+76+y+77+Zona+1+San+Jos%C3%A9+Pinula,+01052,+Guatemala',
+        ubicacion: 'https://waze.com/ul/h9fxdq0bu8',
         redesSociales: {
-            facebook: 'https://www.facebook.com/pinula4iglesiaa/',
+            facebook: 'https://www.facebook.com/share/1AhSPXUjH5/',
+        },
+    },
+    {
+        nombre: 'Iglesia Adventista Del Séptimo Día Pinula #4',
+        anciano: '',
+        direccion: 'Sexta Avenida, lotificacion el chorrito lote 76 y 77, San José Pinula, Guatemala, 01052',
+        pastor: 'Pr. Caleb Josías Soto Poca',
+        correo: 'pinula4iglesia@hotmail.com',
+        cultos: [
+            { dia: 'Sábado', hora: '8:45 AM - 12:00 PM', tipo: 'Culto principal' },
+            { dia: 'Sábado tarde', hora: '4:30 PM - 6:00 PM', tipo: 'Culto vespertino' },
+            { dia: 'Domingos', hora: '7:00 PM - 8:00 PM', tipo: 'Culto' },
+            { dia: 'Miércoles', hora: '7:00 PM - 8:00 PM', tipo: 'Culto' },
+        ],
+        ubicacion: 'https://waze.com/ul/h9fxdwx8j4',
+        redesSociales: {
+            facebook: 'https://www.facebook.com/share/1ZoBCLjuSx/',
+            twitter: 'https://x.com/pinula4iglesiaa',
         },
     },
 ]

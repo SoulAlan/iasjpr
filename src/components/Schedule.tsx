@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Clock, MapPin, ExternalLink, Facebook, Instagram } from 'lucide-react'
+import { Clock, MapPin, ExternalLink, Facebook, Instagram, Twitter, Mail } from 'lucide-react'
 import { iglesias } from '@/lib/data'
 
 export default function Schedule() {
@@ -55,7 +55,7 @@ export default function Schedule() {
               </div>
 
               {/* Links de ubicación y RRSS */}
-              {(iglesia.ubicacion || iglesia.redesSociales?.facebook || iglesia.redesSociales?.instagram) && (
+              {(iglesia.ubicacion || iglesia.redesSociales?.facebook || iglesia.redesSociales?.instagram || iglesia.redesSociales?.twitter || iglesia.correo) && (
                 <div className="px-6 py-3 bg-gray-50 border-b border-gray-100 flex flex-wrap items-center gap-3">
                   {iglesia.ubicacion && (
                     <a
@@ -65,7 +65,7 @@ export default function Schedule() {
                       className="flex items-center gap-1.5 text-blue text-xs font-medium hover:underline"
                     >
                       <ExternalLink size={13} />
-                      Ver en Maps
+                      {iglesia.ubicacion.includes('waze') ? 'Ver en Waze' : 'Ver en Maps'}
                     </a>
                   )}
                   {iglesia.redesSociales?.facebook && (
@@ -88,6 +88,26 @@ export default function Schedule() {
                     >
                       <Instagram size={13} />
                       Instagram
+                    </a>
+                  )}
+                  {iglesia.redesSociales?.twitter && (
+                    <a
+                      href={iglesia.redesSociales.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-blue text-xs font-medium hover:underline"
+                    >
+                      <Twitter size={13} />
+                      X / Twitter
+                    </a>
+                  )}
+                  {iglesia.correo && (
+                    <a
+                      href={`mailto:${iglesia.correo}`}
+                      className="flex items-center gap-1.5 text-blue text-xs font-medium hover:underline"
+                    >
+                      <Mail size={13} />
+                      {iglesia.correo}
                     </a>
                   )}
                 </div>

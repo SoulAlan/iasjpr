@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MapPin, Clock, Calendar, Shield, Flame, Zap, Star } from 'lucide-react'
+import { MapPin, Clock, Calendar, Shield, Flame, Zap, Star, ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 
 const TARGET_DATE = new Date('2026-03-21T09:00:00')
 
@@ -51,10 +52,10 @@ function CountdownBox({ value, label }: { value: number; label: string }) {
 }
 
 const clubes = [
-  { nombre: 'Club Conquistadores Residenciales', iglesia: 'Residenciales San José' },
-  { nombre: 'Club Conquistadores Pinula #2', iglesia: 'Pinula #2' },
-  { nombre: 'Club Conquistadores Pinula #3', iglesia: 'Pinula #3' },
-  { nombre: 'Club Conquistadores Pinula #4', iglesia: 'Pinula #4' },
+  { nombre: 'Club Luken', iglesia: 'Fraijanes', href: '/clubs/luken' },
+  { nombre: 'Club Juda', iglesia: 'San José Pinula', href: null },
+  { nombre: 'Club Conquistadores', iglesia: 'Pinula #3', href: null },
+  { nombre: 'Club Conquistadores', iglesia: 'Pinula #4', href: null },
 ]
 
 const iconosClub = [Shield, Flame, Zap, Star]
@@ -233,29 +234,53 @@ export default function YouthDay() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {clubes.map((club, i) => {
               const Icono = iconosClub[i]
-              return (
-                <motion.div
-                  key={club.nombre}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.55 + i * 0.1 }}
-                  className="flex items-center gap-4 rounded-2xl p-4 border group cursor-default"
-                  style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    borderColor: 'rgba(255,107,53,0.2)',
-                  }}
-                >
+              const card = (
+                <div className="flex items-center gap-4 w-full">
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110"
                     style={{ background: 'linear-gradient(135deg, #f72585 0%, #ff6b35 100%)' }}
                   >
                     <Icono size={20} className="text-white" />
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <p className="text-white font-bold text-sm leading-tight">{club.nombre}</p>
                     <p className="text-white/40 text-xs mt-0.5">{club.iglesia}</p>
                   </div>
+                  {club.href && (
+                    <ChevronRight size={16} className="text-white/30 group-hover:text-white/70 transition-colors flex-shrink-0" />
+                  )}
+                </div>
+              )
+              return (
+                <motion.div
+                  key={`${club.nombre}-${club.iglesia}`}
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.55 + i * 0.1 }}
+                >
+                  {club.href ? (
+                    <Link
+                      href={club.href}
+                      className="flex items-center gap-4 rounded-2xl p-4 border group cursor-pointer transition-all hover:border-orange-500/40 hover:bg-white/8"
+                      style={{
+                        background: 'rgba(255,255,255,0.04)',
+                        borderColor: 'rgba(255,107,53,0.2)',
+                      }}
+                    >
+                      {card}
+                    </Link>
+                  ) : (
+                    <div
+                      className="flex items-center gap-4 rounded-2xl p-4 border group cursor-default"
+                      style={{
+                        background: 'rgba(255,255,255,0.04)',
+                        borderColor: 'rgba(255,107,53,0.2)',
+                      }}
+                    >
+                      {card}
+                    </div>
+                  )}
                 </motion.div>
               )
             })}
